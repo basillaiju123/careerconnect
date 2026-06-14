@@ -26,15 +26,14 @@ SECRET_KEY = 'django-insecure-p%mehjz*vzt%u(6bv4b34rj5486n0uu0ied$l=u9%w8s9g8@j0
 DEBUG = True
 
 ALLOWED_HOSTS = [
-    "careerconnect-od65.onrender.com",
+    "careerconnect-ri7h.onrender.com",
     "localhost",
     "127.0.0.1"
 ]
 
 CSRF_TRUSTED_ORIGINS = [
-    "https://careerconnect-od65.onrender.com"
+    "https://careerconnect-ri7h.onrender.com"
 ]
-
 
 # Application definition
 
