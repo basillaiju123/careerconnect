@@ -1,0 +1,68 @@
+<html>
+<head>
+    <title>My Applications</title>
+
+    <style>
+        body{
+            font-family: Arial, sans-serif;
+            background:#f4f4f4;
+            margin:0;
+            padding:0;
+        }
+
+        .container{
+            width:80%;
+            margin:50px auto;
+        }
+
+        h1{
+            text-align:center;
+            color:#1e3a8a;
+        }
+
+        .card{
+            background:white;
+            padding:25px;
+            margin:20px 0;
+            border-radius:12px;
+            box-shadow:0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        p{
+            font-size:18px;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>My Applications</h1>
+
+    {% for application in applications %}
+
+    <div class="card">
+
+        <h2>{{ application.job.title }}</h2>
+
+        <p><strong>Company:</strong> {{ application.job.company }}</p>
+
+        <p><strong>Location:</strong> {{ application.job.location }}</p>
+
+        <p><strong>Applied Name:</strong> {{ application.name }}</p>
+
+        <p><strong>Email:</strong> {{ application.email }}</p>
+
+    </div>
+
+    {% empty %}
+
+    <h3>No applications found</h3>
+
+    {% endfor %}
+
+</div>
+
+</body>
+</html>

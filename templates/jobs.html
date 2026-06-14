@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>CareerConnect Jobs</title>
+
+    <style>
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body{
+            background:#f4f6f9;
+        }
+
+        nav{
+            background:#1e3a8a;
+            padding:20px 60px;
+            display:flex;
+            justify-content:space-between;
+            align-items:center;
+        }
+
+        nav h2{
+            color:white;
+        }
+
+        nav a{
+            color:white;
+            text-decoration:none;
+            margin-left:20px;
+            font-size:18px;
+        }
+
+        .container{
+            width:80%;
+            margin:auto;
+            padding:40px 0;
+        }
+
+        .title{
+            text-align:center;
+            color:#1e3a8a;
+            margin-bottom:30px;
+            font-size:45px;
+        }
+
+        .search-box{
+            text-align:center;
+            margin-bottom:40px;
+        }
+
+        input{
+            width:50%;
+            padding:15px;
+            border-radius:10px;
+            border:1px solid #ccc;
+            font-size:16px;
+        }
+
+        .job-card{
+            background:white;
+            margin-bottom:25px;
+            padding:30px;
+            border-radius:15px;
+            box-shadow:0px 2px 12px rgba(0,0,0,0.1);
+            transition:0.3s;
+        }
+
+        .job-card:hover{
+            transform:translateY(-5px);
+        }
+
+        h3{
+            font-size:32px;
+            margin-bottom:15px;
+        }
+
+        p{
+            font-size:20px;
+            margin:10px 0;
+        }
+
+        button{
+            margin-top:15px;
+            background:#2563eb;
+            color:white;
+            border:none;
+            padding:12px 28px;
+            border-radius:10px;
+            font-size:16px;
+            cursor:pointer;
+        }
+
+        button:hover{
+            background:#1d4ed8;
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav>
+        <h2>💼 CareerConnect</h2>
+
+        <div>
+            <a href="/">Home</a>
+            <a href="/jobs/">Jobs</a>
+            <a href="#">Login</a>
+        </div>
+    </nav>
+
+    <div class="container">
+
+        <h1 class="title">Available Jobs</h1>
+
+        <div class="search-box">
+            <div class="search-box">
+                <form method="GET">
+                    <input
+                        type="text"
+                        name="search"
+                        placeholder="Search for jobs..."
+                        value="{{ request.GET.search }}"
+                    >
+                </form>
+            </div>
+        </div>
+
+        {% for job in jobs %}
+
+        <div class="job-card">
+
+            <h3>{{ job.title }}</h3>
+
+            <p><strong>Company:</strong> {{ job.company }}</p>
+
+            <p><strong>Location:</strong> {{ job.location }}</p>
+            <p><strong>Description:</strong> {{ job.description }}</p>
+            <a href="/job/{{ job.id }}/">
+                <button>View Details</button>
+            </a>
+           
+
+        </div>
+
+        {% endfor %}
+
+    </div>
+
+</body>
+</html>
